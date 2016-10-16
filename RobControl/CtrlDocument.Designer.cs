@@ -33,6 +33,7 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.btnAddPrj = new DevComponents.DotNetBar.ButtonX();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,12 +43,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.c1FlexGrid3.ColumnInfo = resources.GetString("c1FlexGrid3.ColumnInfo");
-            this.c1FlexGrid3.Location = new System.Drawing.Point(8, 8);
+            this.c1FlexGrid3.Location = new System.Drawing.Point(8, 55);
             this.c1FlexGrid3.Name = "c1FlexGrid3";
             this.c1FlexGrid3.Rows.DefaultSize = 20;
             this.c1FlexGrid3.Rows.MinSize = 25;
             this.c1FlexGrid3.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.ListBox;
-            this.c1FlexGrid3.Size = new System.Drawing.Size(686, 516);
+            this.c1FlexGrid3.Size = new System.Drawing.Size(686, 469);
             this.c1FlexGrid3.StyleInfo = resources.GetString("c1FlexGrid3.StyleInfo");
             this.c1FlexGrid3.TabIndex = 3;
             // 
@@ -58,7 +59,7 @@
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonX1.Location = new System.Drawing.Point(709, 8);
+            this.buttonX1.Location = new System.Drawing.Point(709, 55);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(77, 54);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -75,7 +76,7 @@
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonX2.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonX2.Location = new System.Drawing.Point(709, 160);
+            this.buttonX2.Location = new System.Drawing.Point(709, 207);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(77, 54);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -91,7 +92,7 @@
             this.btnAddPrj.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnAddPrj.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAddPrj.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnAddPrj.Location = new System.Drawing.Point(709, 100);
+            this.btnAddPrj.Location = new System.Drawing.Point(709, 147);
             this.btnAddPrj.Name = "btnAddPrj";
             this.btnAddPrj.Size = new System.Drawing.Size(77, 54);
             this.btnAddPrj.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -100,10 +101,24 @@
             this.btnAddPrj.TabIndex = 7;
             this.btnAddPrj.Text = "导出信息";
             // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX5.Location = new System.Drawing.Point(10, 10);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(129, 39);
+            this.labelX5.TabIndex = 18;
+            this.labelX5.Text = "导出报告：";
+            // 
             // CtrlDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelX5);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.btnAddPrj);
@@ -120,5 +135,6 @@
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX btnAddPrj;
+        private DevComponents.DotNetBar.LabelX labelX5;
     }
 }

@@ -94,9 +94,29 @@ namespace RobControl
                 var doc = new XmlDocument();
                 doc.Load(prjInfo.ProjectFilePathName);
 
-                
+                var rootElem = doc.DocumentElement;
+                if (rootElem == null)
+                    return null;
 
+                prjInfo.ModelPoints.Clear();
+                var pointsNode = rootElem.GetElementsByTagName("Point");
+                foreach (XmlNode ptNode in pointsNode)
+                {
+                    var ptElem = ptNode as XmlElement;
+                    if (ptElem == null)
+                        continue;
 
+                    var point = new ModelPoint(ptElem.InnerText)
+                    {
+                        x = double.Parse(ptElem.GetAttribute("x")),
+                        y = double.Parse(ptElem.GetAttribute("y")),
+                        z = double.Parse(ptElem.GetAttribute("z")),
+                        x1 = double.Parse(ptElem.GetAttribute("x1")),
+                        y1 = double.Parse(ptElem.GetAttribute("y1")),
+                        z1 = double.Parse(ptElem.GetAttribute("z1")),
+                        Type = int.Parse(ptElem.GetAttribute("Type"))
+                    };
+                }
 
                 return prjInfo;
             }

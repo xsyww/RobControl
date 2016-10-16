@@ -120,6 +120,7 @@
             // picPreview
             // 
             this.picPreview.BackColor = System.Drawing.Color.Gray;
+            this.picPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picPreview.Location = new System.Drawing.Point(22, 212);
             this.picPreview.Name = "picPreview";
             this.picPreview.Size = new System.Drawing.Size(360, 180);

@@ -36,6 +36,9 @@
     <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20123.730, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20123.61277, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2, Version=11.3.0.0, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="LinqBridge">
+      <HintPath>..\..\PublicLibrary\LinqBridge.dll</HintPath>
+    </Reference>
     <Reference Include="OpenVDF, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\vdraw\OpenVDF.dll</HintPath>
@@ -93,6 +96,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonDefine.cs" />
     <Compile Include="CtrlDocument.cs">
       <SubType>UserControl</SubType>
     </Compile>
