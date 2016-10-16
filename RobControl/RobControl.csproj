@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{93BAAEB9-24B4-4DDB-82F7-32DB9A4F2F4A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RobControl</RootNamespace>
+    <AssemblyName>RobControl</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20123.730, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20123.61277, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=11.3.0.0, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="OpenVDF, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\OpenVDF.dll</HintPath>
+    </Reference>
+    <Reference Include="RenderFormats, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\RenderFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="vdDXF, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\vdDXF.dll</HintPath>
+    </Reference>
+    <Reference Include="VDrawBaseControl, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\VDrawBaseControl.dll</HintPath>
+    </Reference>
+    <Reference Include="vdxFcnv, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\vdxFcnv.dll</HintPath>
+    </Reference>
+    <Reference Include="VectorDraw.Actions, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\VectorDraw.Actions.dll</HintPath>
+    </Reference>
+    <Reference Include="VectorDraw.Generics, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\VectorDraw.Generics.dll</HintPath>
+    </Reference>
+    <Reference Include="VectorDraw.Geometry, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\VectorDraw.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="VectorDraw.Professional, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\VectorDraw.Professional.dll</HintPath>
+    </Reference>
+    <Reference Include="VectorDraw.Render, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\VectorDraw.Render.dll</HintPath>
+    </Reference>
+    <Reference Include="VectorDraw.Serialize, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\VectorDraw.Serialize.dll</HintPath>
+    </Reference>
+    <Reference Include="WinMsgMannager, Version=6.6028.1.1, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vdraw\WinMsgMannager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CtrlDocument.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDocument.Designer.cs">
+      <DependentUpon>CtrlDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPrjInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPrjInfo.Designer.cs">
+      <DependentUpon>CtrlPrjInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlProjects.Designer.cs">
+      <DependentUpon>CtrlProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlRobSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlRobSetting.Designer.cs">
+      <DependentUpon>CtrlRobSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPrj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPrj.Designer.cs">
+      <DependentUpon>FormAddPrj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMetro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMetro.Designer.cs">
+      <DependentUpon>FormMetro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRobotSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRobotSetting.Designer.cs">
+      <DependentUpon>FormRobotSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainItemPanelCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainItemPanelCtrl.Designer.cs">
+      <DependentUpon>MainItemPanelCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPoint.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectConfigFileOper.cs" />
+    <Compile Include="ProjectInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CtrlDocument.resx">
+      <DependentUpon>CtrlDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPrjInfo.resx">
+      <DependentUpon>CtrlPrjInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlProjects.resx">
+      <DependentUpon>CtrlProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlRobSetting.resx">
+      <DependentUpon>CtrlRobSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPrj.resx">
+      <DependentUpon>FormAddPrj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMetro.resx">
+      <DependentUpon>FormMetro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRobotSetting.resx">
+      <DependentUpon>FormRobotSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainItemPanelCtrl.resx">
+      <DependentUpon>MainItemPanelCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
