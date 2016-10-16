@@ -52,9 +52,10 @@ namespace RobControl
                 var prjInfo = new ProjectInfo(txtPrjName.Text);
 
                 if (!string.IsNullOrEmpty(_sourceModelFilePath))
-                {
                     File.Copy(_sourceModelFilePath, prjInfo.ModelFilePathName, true);
-                }
+
+                if (picPreview.Image != null)
+                    picPreview.Image.Save(prjInfo.ImageFilePathName);
             }
             catch (Exception ex)
             {

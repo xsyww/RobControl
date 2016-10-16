@@ -40,6 +40,9 @@ namespace RobControl
                 doc.Load(prjInfo.ProjectFilePathName);
 
                 var rootElem = doc.DocumentElement;
+                if (rootElem == null)
+                    return false;
+
                 var pointsNode = rootElem.GetElementsByTagName("Points");
                 if (pointsNode.Count > 0)
                 {
@@ -65,7 +68,7 @@ namespace RobControl
                     ptNode.SetAttribute("x1", pt.x1.ToString());
                     ptNode.SetAttribute("y1", pt.y1.ToString());
                     ptNode.SetAttribute("z1", pt.z1.ToString());
-                    ptNode.Value = pt.Name;
+                    ptNode.InnerText = pt.Name;
                     ptNode.SetAttribute("Type", pt.Type.ToString());
 
                     pointsNode[0].AppendChild(ptNode);
@@ -79,6 +82,28 @@ namespace RobControl
             {
                 MessageBox.Show("保存项目信息失败！\n" + ex.Message);
                 return false;
+            }
+        }
+
+        public static ProjectInfo LoadPrjInfo(string prjName)
+        {
+            try
+            {
+                ProjectInfo prjInfo = new ProjectInfo(prjName);
+
+                var doc = new XmlDocument();
+                doc.Load(prjInfo.ProjectFilePathName);
+
+                
+
+
+
+                return prjInfo;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("读取项目信息失败！ \n" + ex.Message);
+                return null;
             }
         }
     }
