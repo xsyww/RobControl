@@ -11,6 +11,7 @@ namespace RobControl
         public ProjectInfo(string name)
         {
             this.Name = name;
+            ModelPoints = new List<ModelPoint>();
         }
 
         public string Name { get; set; }
