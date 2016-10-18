@@ -39,23 +39,32 @@
             this.btnMin = new DevComponents.DotNetBar.ButtonItem();
             this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnCancelCommand = new DevComponents.DotNetBar.ButtonX();
+            this.itemPanel3 = new DevComponents.DotNetBar.ItemPanel();
+            this.btnShowAll = new DevComponents.DotNetBar.ButtonItem();
+            this.btnPan = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRotate = new DevComponents.DotNetBar.ButtonItem();
+            this.btnZoomIn = new DevComponents.DotNetBar.ButtonItem();
+            this.btnZoomOut = new DevComponents.DotNetBar.ButtonItem();
+            this.btnPer = new DevComponents.DotNetBar.ButtonItem();
+            this.btnWalkThrough = new DevComponents.DotNetBar.ButtonItem();
             this.vDraw = new VectorDraw.Professional.Control.VectorDrawBaseControl();
-            this.c1FlexGrid3 = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.gridPoints = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.itemPanel2 = new DevComponents.DotNetBar.ItemPanel();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem6 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnPre = new DevComponents.DotNetBar.ButtonItem();
+            this.btnNext = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnSetupOriginPoint = new DevComponents.DotNetBar.ButtonItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBoxX7 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX8 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX9 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX5 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX6 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX3 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtWz = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtWy = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtWx = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtCz = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtCy = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtCx = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtMz = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtMy = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtMx = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
@@ -67,11 +76,12 @@
             this.btnReport = new DevComponents.DotNetBar.ButtonItem();
             this.btnProjectSetting = new DevComponents.DotNetBar.ButtonItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.addPoint = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPoints)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -89,9 +99,9 @@
             this.metroStatusBar1.ForeColor = System.Drawing.Color.Black;
             this.metroStatusBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.labelItem1});
-            this.metroStatusBar1.Location = new System.Drawing.Point(0, 755);
+            this.metroStatusBar1.Location = new System.Drawing.Point(1, 586);
             this.metroStatusBar1.Name = "metroStatusBar1";
-            this.metroStatusBar1.Size = new System.Drawing.Size(1126, 22);
+            this.metroStatusBar1.Size = new System.Drawing.Size(886, 22);
             this.metroStatusBar1.TabIndex = 0;
             this.metroStatusBar1.Text = "metroStatusBar1";
             // 
@@ -115,10 +125,10 @@
             this.btnInfoSetting,
             this.btnMin,
             this.btnClose});
-            this.bar1.Location = new System.Drawing.Point(0, 1);
+            this.bar1.Location = new System.Drawing.Point(1, 1);
             this.bar1.Name = "bar1";
             this.bar1.RoundCorners = false;
-            this.bar1.Size = new System.Drawing.Size(1126, 31);
+            this.bar1.Size = new System.Drawing.Size(886, 31);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar1.TabIndex = 2;
@@ -161,25 +171,140 @@
             this.splitContainer1.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.ForeColor = System.Drawing.Color.Black;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 91);
+            this.splitContainer1.Location = new System.Drawing.Point(1, 91);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
+            this.splitContainer1.Panel1.Controls.Add(this.btnCancelCommand);
+            this.splitContainer1.Panel1.Controls.Add(this.itemPanel3);
             this.splitContainer1.Panel1.Controls.Add(this.vDraw);
             this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.Black;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
-            this.splitContainer1.Panel2.Controls.Add(this.c1FlexGrid3);
+            this.splitContainer1.Panel2.Controls.Add(this.gridPoints);
             this.splitContainer1.Panel2.Controls.Add(this.itemPanel2);
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.Black;
-            this.splitContainer1.Size = new System.Drawing.Size(1126, 664);
-            this.splitContainer1.SplitterDistance = 778;
+            this.splitContainer1.Size = new System.Drawing.Size(886, 495);
+            this.splitContainer1.SplitterDistance = 611;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // btnCancelCommand
+            // 
+            this.btnCancelCommand.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnCancelCommand.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnCancelCommand.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnCancelCommand.Location = new System.Drawing.Point(5, 5);
+            this.btnCancelCommand.Name = "btnCancelCommand";
+            this.btnCancelCommand.Size = new System.Drawing.Size(67, 54);
+            this.btnCancelCommand.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnCancelCommand.Symbol = "";
+            this.btnCancelCommand.SymbolSize = 25F;
+            this.btnCancelCommand.TabIndex = 3;
+            this.btnCancelCommand.Text = "取消命令";
+            this.btnCancelCommand.Click += new System.EventHandler(this.btnCancelCommand_Click);
+            // 
+            // itemPanel3
+            // 
+            this.itemPanel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.itemPanel3.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.itemPanel3.BackgroundStyle.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.itemPanel3.BackgroundStyle.Class = "ItemPanel";
+            this.itemPanel3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.itemPanel3.ContainerControlProcessDialogKey = true;
+            this.itemPanel3.ForeColor = System.Drawing.Color.Black;
+            this.itemPanel3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnShowAll,
+            this.btnPan,
+            this.btnRotate,
+            this.btnZoomIn,
+            this.btnZoomOut,
+            this.btnPer,
+            this.btnWalkThrough});
+            this.itemPanel3.Location = new System.Drawing.Point(164, 434);
+            this.itemPanel3.Name = "itemPanel3";
+            this.itemPanel3.Size = new System.Drawing.Size(342, 58);
+            this.itemPanel3.TabIndex = 2;
+            this.itemPanel3.Text = "itemPanel3";
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnShowAll.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Symbol = "";
+            this.btnShowAll.SymbolSize = 25F;
+            this.btnShowAll.Text = "全显";
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
+            // btnPan
+            // 
+            this.btnPan.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnPan.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnPan.Name = "btnPan";
+            this.btnPan.Symbol = "";
+            this.btnPan.SymbolSize = 25F;
+            this.btnPan.Text = "平移";
+            this.btnPan.Click += new System.EventHandler(this.btnPan_Click);
+            // 
+            // btnRotate
+            // 
+            this.btnRotate.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnRotate.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnRotate.Name = "btnRotate";
+            this.btnRotate.Symbol = "";
+            this.btnRotate.SymbolSize = 25F;
+            this.btnRotate.Text = "旋转";
+            this.btnRotate.Click += new System.EventHandler(this.btnRotate_Click);
+            // 
+            // btnZoomIn
+            // 
+            this.btnZoomIn.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnZoomIn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnZoomIn.Name = "btnZoomIn";
+            this.btnZoomIn.Symbol = "";
+            this.btnZoomIn.SymbolSize = 25F;
+            this.btnZoomIn.Text = "放大";
+            this.btnZoomIn.Click += new System.EventHandler(this.btnZoomIn_Click);
+            // 
+            // btnZoomOut
+            // 
+            this.btnZoomOut.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnZoomOut.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnZoomOut.Name = "btnZoomOut";
+            this.btnZoomOut.Symbol = "";
+            this.btnZoomOut.SymbolSize = 25F;
+            this.btnZoomOut.Text = "缩小";
+            this.btnZoomOut.Click += new System.EventHandler(this.btnZoomOut_Click);
+            // 
+            // btnPer
+            // 
+            this.btnPer.AutoCheckOnClick = true;
+            this.btnPer.BeginGroup = true;
+            this.btnPer.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnPer.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnPer.Name = "btnPer";
+            this.btnPer.Symbol = "";
+            this.btnPer.SymbolSize = 25F;
+            this.btnPer.Text = "透视";
+            this.btnPer.Click += new System.EventHandler(this.btnPer_Click);
+            // 
+            // btnWalkThrough
+            // 
+            this.btnWalkThrough.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnWalkThrough.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnWalkThrough.Name = "btnWalkThrough";
+            this.btnWalkThrough.Symbol = "";
+            this.btnWalkThrough.SymbolSize = 25F;
+            this.btnWalkThrough.Text = "漫游";
+            this.btnWalkThrough.Click += new System.EventHandler(this.btnWalkThrough_Click);
             // 
             // vDraw
             // 
@@ -193,25 +318,24 @@
             this.vDraw.ForeColor = System.Drawing.Color.Black;
             this.vDraw.Location = new System.Drawing.Point(0, 0);
             this.vDraw.Name = "vDraw";
-            this.vDraw.Size = new System.Drawing.Size(778, 664);
+            this.vDraw.Size = new System.Drawing.Size(611, 495);
             this.vDraw.TabIndex = 0;
             // 
-            // c1FlexGrid3
+            // gridPoints
             // 
-            this.c1FlexGrid3.BackColor = System.Drawing.Color.White;
-            this.c1FlexGrid3.ColumnInfo = "9,1,0,0,0,100,Columns:1{Width:79;Caption:\"点名\";}\t2{Caption:\"类型\";}\t3{Width:81;Capti" +
-    "on:\"x\";}\t4{Caption:\"y\";}\t5{Caption:\"z\";}\t6{Caption:\"x\'\";}\t7{Caption:\"y\'\";}\t8{Cap" +
-    "tion:\"z\'\";}\t";
-            this.c1FlexGrid3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c1FlexGrid3.ForeColor = System.Drawing.Color.Black;
-            this.c1FlexGrid3.Location = new System.Drawing.Point(0, 160);
-            this.c1FlexGrid3.Name = "c1FlexGrid3";
-            this.c1FlexGrid3.Rows.DefaultSize = 20;
-            this.c1FlexGrid3.Rows.MinSize = 25;
-            this.c1FlexGrid3.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.ListBox;
-            this.c1FlexGrid3.Size = new System.Drawing.Size(344, 504);
-            this.c1FlexGrid3.StyleInfo = resources.GetString("c1FlexGrid3.StyleInfo");
-            this.c1FlexGrid3.TabIndex = 4;
+            this.gridPoints.BackColor = System.Drawing.Color.White;
+            this.gridPoints.ColumnInfo = resources.GetString("gridPoints.ColumnInfo");
+            this.gridPoints.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridPoints.ForeColor = System.Drawing.Color.Black;
+            this.gridPoints.Location = new System.Drawing.Point(0, 160);
+            this.gridPoints.Name = "gridPoints";
+            this.gridPoints.Rows.DefaultSize = 20;
+            this.gridPoints.Rows.MinSize = 25;
+            this.gridPoints.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.ListBox;
+            this.gridPoints.Size = new System.Drawing.Size(271, 335);
+            this.gridPoints.StyleInfo = resources.GetString("gridPoints.StyleInfo");
+            this.gridPoints.TabIndex = 4;
+            this.gridPoints.SelChange += new System.EventHandler(this.gridPoints_SelChange);
             // 
             // itemPanel2
             // 
@@ -225,36 +349,32 @@
             this.itemPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.itemPanel2.ForeColor = System.Drawing.Color.Black;
             this.itemPanel2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem1,
-            this.buttonItem5,
-            this.buttonItem6,
-            this.buttonItem4});
+            this.btnPre,
+            this.btnNext,
+            this.buttonItem4,
+            this.btnSetupOriginPoint,
+            this.addPoint});
             this.itemPanel2.Location = new System.Drawing.Point(0, 116);
             this.itemPanel2.Name = "itemPanel2";
-            this.itemPanel2.Size = new System.Drawing.Size(344, 44);
+            this.itemPanel2.Size = new System.Drawing.Size(271, 44);
             this.itemPanel2.TabIndex = 5;
             this.itemPanel2.Text = "itemPanel2";
             // 
-            // buttonItem1
+            // btnPre
             // 
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Symbol = "";
-            this.buttonItem1.SymbolSize = 30F;
-            this.buttonItem1.Text = "buttonItem4";
+            this.btnPre.Name = "btnPre";
+            this.btnPre.Symbol = "";
+            this.btnPre.SymbolSize = 30F;
+            this.btnPre.Text = "buttonItem5";
+            this.btnPre.Click += new System.EventHandler(this.btnPre_Click);
             // 
-            // buttonItem5
+            // btnNext
             // 
-            this.buttonItem5.Name = "buttonItem5";
-            this.buttonItem5.Symbol = "";
-            this.buttonItem5.SymbolSize = 30F;
-            this.buttonItem5.Text = "buttonItem5";
-            // 
-            // buttonItem6
-            // 
-            this.buttonItem6.Name = "buttonItem6";
-            this.buttonItem6.Symbol = "";
-            this.buttonItem6.SymbolSize = 30F;
-            this.buttonItem6.Text = "buttonItem6";
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Symbol = "";
+            this.btnNext.SymbolSize = 30F;
+            this.btnNext.Text = "buttonItem6";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // buttonItem4
             // 
@@ -264,18 +384,25 @@
             this.buttonItem4.SymbolSize = 30F;
             this.buttonItem4.Text = "buttonItem4";
             // 
+            // btnSetupOriginPoint
+            // 
+            this.btnSetupOriginPoint.Name = "btnSetupOriginPoint";
+            this.btnSetupOriginPoint.Symbol = "";
+            this.btnSetupOriginPoint.SymbolSize = 30F;
+            this.btnSetupOriginPoint.Text = "buttonItem4";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
-            this.panel2.Controls.Add(this.textBoxX7);
-            this.panel2.Controls.Add(this.textBoxX8);
-            this.panel2.Controls.Add(this.textBoxX9);
-            this.panel2.Controls.Add(this.textBoxX4);
-            this.panel2.Controls.Add(this.textBoxX5);
-            this.panel2.Controls.Add(this.textBoxX6);
-            this.panel2.Controls.Add(this.textBoxX3);
-            this.panel2.Controls.Add(this.textBoxX2);
-            this.panel2.Controls.Add(this.textBoxX1);
+            this.panel2.Controls.Add(this.txtWz);
+            this.panel2.Controls.Add(this.txtWy);
+            this.panel2.Controls.Add(this.txtWx);
+            this.panel2.Controls.Add(this.txtCz);
+            this.panel2.Controls.Add(this.txtCy);
+            this.panel2.Controls.Add(this.txtCx);
+            this.panel2.Controls.Add(this.txtMz);
+            this.panel2.Controls.Add(this.txtMy);
+            this.panel2.Controls.Add(this.txtMx);
             this.panel2.Controls.Add(this.labelX6);
             this.panel2.Controls.Add(this.labelX5);
             this.panel2.Controls.Add(this.labelX4);
@@ -286,134 +413,134 @@
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(344, 116);
+            this.panel2.Size = new System.Drawing.Size(271, 116);
             this.panel2.TabIndex = 1;
             // 
-            // textBoxX7
+            // txtWz
             // 
-            this.textBoxX7.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.textBoxX7.Border.Class = "TextBoxBorder";
-            this.textBoxX7.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX7.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX7.Location = new System.Drawing.Point(250, 84);
-            this.textBoxX7.Name = "textBoxX7";
-            this.textBoxX7.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX7.TabIndex = 14;
-            // 
-            // textBoxX8
-            // 
-            this.textBoxX8.BackColor = System.Drawing.Color.White;
+            this.txtWz.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX8.Border.Class = "TextBoxBorder";
-            this.textBoxX8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX8.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX8.Location = new System.Drawing.Point(157, 84);
-            this.textBoxX8.Name = "textBoxX8";
-            this.textBoxX8.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX8.TabIndex = 13;
+            this.txtWz.Border.Class = "TextBoxBorder";
+            this.txtWz.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWz.ForeColor = System.Drawing.Color.Black;
+            this.txtWz.Location = new System.Drawing.Point(250, 84);
+            this.txtWz.Name = "txtWz";
+            this.txtWz.Size = new System.Drawing.Size(87, 21);
+            this.txtWz.TabIndex = 14;
             // 
-            // textBoxX9
+            // txtWy
             // 
-            this.textBoxX9.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.textBoxX9.Border.Class = "TextBoxBorder";
-            this.textBoxX9.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX9.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX9.Location = new System.Drawing.Point(64, 84);
-            this.textBoxX9.Name = "textBoxX9";
-            this.textBoxX9.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX9.TabIndex = 12;
-            // 
-            // textBoxX4
-            // 
-            this.textBoxX4.BackColor = System.Drawing.Color.White;
+            this.txtWy.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX4.Border.Class = "TextBoxBorder";
-            this.textBoxX4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX4.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX4.Location = new System.Drawing.Point(250, 57);
-            this.textBoxX4.Name = "textBoxX4";
-            this.textBoxX4.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX4.TabIndex = 11;
+            this.txtWy.Border.Class = "TextBoxBorder";
+            this.txtWy.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWy.ForeColor = System.Drawing.Color.Black;
+            this.txtWy.Location = new System.Drawing.Point(157, 84);
+            this.txtWy.Name = "txtWy";
+            this.txtWy.Size = new System.Drawing.Size(87, 21);
+            this.txtWy.TabIndex = 13;
             // 
-            // textBoxX5
+            // txtWx
             // 
-            this.textBoxX5.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.textBoxX5.Border.Class = "TextBoxBorder";
-            this.textBoxX5.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX5.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX5.Location = new System.Drawing.Point(157, 57);
-            this.textBoxX5.Name = "textBoxX5";
-            this.textBoxX5.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX5.TabIndex = 10;
-            // 
-            // textBoxX6
-            // 
-            this.textBoxX6.BackColor = System.Drawing.Color.White;
+            this.txtWx.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX6.Border.Class = "TextBoxBorder";
-            this.textBoxX6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX6.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX6.Location = new System.Drawing.Point(64, 57);
-            this.textBoxX6.Name = "textBoxX6";
-            this.textBoxX6.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX6.TabIndex = 9;
+            this.txtWx.Border.Class = "TextBoxBorder";
+            this.txtWx.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWx.ForeColor = System.Drawing.Color.Black;
+            this.txtWx.Location = new System.Drawing.Point(64, 84);
+            this.txtWx.Name = "txtWx";
+            this.txtWx.Size = new System.Drawing.Size(87, 21);
+            this.txtWx.TabIndex = 12;
             // 
-            // textBoxX3
+            // txtCz
             // 
-            this.textBoxX3.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.textBoxX3.Border.Class = "TextBoxBorder";
-            this.textBoxX3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX3.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX3.Location = new System.Drawing.Point(250, 30);
-            this.textBoxX3.Name = "textBoxX3";
-            this.textBoxX3.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX3.TabIndex = 8;
-            // 
-            // textBoxX2
-            // 
-            this.textBoxX2.BackColor = System.Drawing.Color.White;
+            this.txtCz.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX2.Location = new System.Drawing.Point(157, 30);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX2.TabIndex = 7;
+            this.txtCz.Border.Class = "TextBoxBorder";
+            this.txtCz.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCz.ForeColor = System.Drawing.Color.Black;
+            this.txtCz.Location = new System.Drawing.Point(250, 57);
+            this.txtCz.Name = "txtCz";
+            this.txtCz.Size = new System.Drawing.Size(87, 21);
+            this.txtCz.TabIndex = 11;
             // 
-            // textBoxX1
+            // txtCy
             // 
-            this.textBoxX1.BackColor = System.Drawing.Color.White;
+            this.txtCy.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX1.Location = new System.Drawing.Point(64, 30);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(87, 21);
-            this.textBoxX1.TabIndex = 6;
+            this.txtCy.Border.Class = "TextBoxBorder";
+            this.txtCy.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCy.ForeColor = System.Drawing.Color.Black;
+            this.txtCy.Location = new System.Drawing.Point(157, 57);
+            this.txtCy.Name = "txtCy";
+            this.txtCy.Size = new System.Drawing.Size(87, 21);
+            this.txtCy.TabIndex = 10;
+            // 
+            // txtCx
+            // 
+            this.txtCx.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtCx.Border.Class = "TextBoxBorder";
+            this.txtCx.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCx.ForeColor = System.Drawing.Color.Black;
+            this.txtCx.Location = new System.Drawing.Point(64, 57);
+            this.txtCx.Name = "txtCx";
+            this.txtCx.Size = new System.Drawing.Size(87, 21);
+            this.txtCx.TabIndex = 9;
+            // 
+            // txtMz
+            // 
+            this.txtMz.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtMz.Border.Class = "TextBoxBorder";
+            this.txtMz.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMz.ForeColor = System.Drawing.Color.Black;
+            this.txtMz.Location = new System.Drawing.Point(250, 30);
+            this.txtMz.Name = "txtMz";
+            this.txtMz.Size = new System.Drawing.Size(87, 21);
+            this.txtMz.TabIndex = 8;
+            // 
+            // txtMy
+            // 
+            this.txtMy.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtMy.Border.Class = "TextBoxBorder";
+            this.txtMy.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMy.ForeColor = System.Drawing.Color.Black;
+            this.txtMy.Location = new System.Drawing.Point(157, 30);
+            this.txtMy.Name = "txtMy";
+            this.txtMy.Size = new System.Drawing.Size(87, 21);
+            this.txtMy.TabIndex = 7;
+            // 
+            // txtMx
+            // 
+            this.txtMx.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtMx.Border.Class = "TextBoxBorder";
+            this.txtMx.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMx.ForeColor = System.Drawing.Color.Black;
+            this.txtMx.Location = new System.Drawing.Point(64, 30);
+            this.txtMx.Name = "txtMx";
+            this.txtMx.Size = new System.Drawing.Size(87, 21);
+            this.txtMx.TabIndex = 6;
             // 
             // labelX6
             // 
@@ -520,7 +647,7 @@
             this.btnReport,
             this.btnProjectSetting});
             this.itemPanel1.ItemSpacing = 20;
-            this.itemPanel1.Location = new System.Drawing.Point(408, 2);
+            this.itemPanel1.Location = new System.Drawing.Point(288, 2);
             this.itemPanel1.Name = "itemPanel1";
             this.itemPanel1.Size = new System.Drawing.Size(260, 55);
             this.itemPanel1.TabIndex = 0;
@@ -548,6 +675,7 @@
             this.btnProjectSetting.Symbol = "";
             this.btnProjectSetting.SymbolSize = 40F;
             this.btnProjectSetting.Text = "buttonItem2";
+            this.btnProjectSetting.Click += new System.EventHandler(this.btnProjectSetting_Click);
             // 
             // panel1
             // 
@@ -555,16 +683,24 @@
             this.panel1.Controls.Add(this.itemPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(0, 32);
+            this.panel1.Location = new System.Drawing.Point(1, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1126, 59);
+            this.panel1.Size = new System.Drawing.Size(886, 59);
             this.panel1.TabIndex = 4;
+            // 
+            // addPoint
+            // 
+            this.addPoint.Name = "addPoint";
+            this.addPoint.Symbol = "";
+            this.addPoint.SymbolSize = 30F;
+            this.addPoint.Text = "buttonItem4";
+            this.addPoint.Click += new System.EventHandler(this.addPoint_Click);
             // 
             // FormMetro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 778);
+            this.ClientSize = new System.Drawing.Size(888, 609);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bar1);
@@ -578,7 +714,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPoints)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -603,26 +739,36 @@
         private DevComponents.DotNetBar.ButtonItem btnReport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX7;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX8;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX9;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX4;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX5;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX6;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX3;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtWz;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtWy;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtWx;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCz;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCy;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCx;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtMz;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtMy;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtMx;
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid3;
+        private C1.Win.C1FlexGrid.C1FlexGrid gridPoints;
         private DevComponents.DotNetBar.ItemPanel itemPanel2;
-        private DevComponents.DotNetBar.ButtonItem buttonItem5;
-        private DevComponents.DotNetBar.ButtonItem buttonItem6;
+        private DevComponents.DotNetBar.ButtonItem btnPre;
+        private DevComponents.DotNetBar.ButtonItem btnNext;
         private DevComponents.DotNetBar.ButtonItem buttonItem4;
-        private DevComponents.DotNetBar.ButtonItem buttonItem1;
+        private DevComponents.DotNetBar.ItemPanel itemPanel3;
+        private DevComponents.DotNetBar.ButtonItem btnShowAll;
+        private DevComponents.DotNetBar.ButtonItem btnPan;
+        private DevComponents.DotNetBar.ButtonItem btnRotate;
+        private DevComponents.DotNetBar.ButtonItem btnPer;
+        private DevComponents.DotNetBar.ButtonItem btnWalkThrough;
+        private DevComponents.DotNetBar.ButtonItem btnSetupOriginPoint;
+        private DevComponents.DotNetBar.ButtonItem btnZoomIn;
+        private DevComponents.DotNetBar.ButtonItem btnZoomOut;
+        private DevComponents.DotNetBar.ButtonX btnCancelCommand;
+        private DevComponents.DotNetBar.ButtonItem addPoint;
     }
 }

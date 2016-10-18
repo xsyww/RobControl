@@ -6,6 +6,7 @@ using System.Data;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using DevComponents.DotNetBar.Metro;
 
 namespace RobControl
 {
@@ -42,12 +43,16 @@ namespace RobControl
                 if (files.Length < 1)
                     continue;
 
-                var tileItem = new DevComponents.DotNetBar.Metro.MetroTileItem();
+                var tileItem = new MetroTileItem();
                 tileItem.TileSize = new Size(360, 180);
                 tileItem.TitleText = prjName;
                 tileItem.Click += TileItem_Click;
                 if (File.Exists(dir + "\\image.jpg"))
-                    tileItem.Image = Image.FromFile(dir + "\\image.jpg");
+                {
+                    Image img = Image.FromFile(dir + "\\image.jpg");
+                    tileItem.Image = new Bitmap(img);
+                    img.Dispose();
+                }
 
                 prjItemContainer.SubItems.Add(tileItem);
             }
@@ -55,7 +60,7 @@ namespace RobControl
 
         private void TileItem_Click(object sender, EventArgs e)
         {
-            var item = sender as DevComponents.DotNetBar.Metro.MetroTileItem;
+            var item = sender as MetroTileItem;
             if (item == null)
                 return;
 
@@ -76,6 +81,54 @@ namespace RobControl
 
             if (CloseClickHandler != null)
                 CloseClickHandler(this);
+        }
+
+        private void btnDeletePrj_Click(object sender, EventArgs e)
+        {
+            var selectedItems = new List<MetroTileItem>();
+
+            foreach (var item in prjItemContainer.SubItems)
+            {
+                var prjItem = item as MetroTileItem;
+                if (prjItem == null)
+                    continue;
+
+                if (prjItem.Checked)
+                    selectedItems.Add(prjItem);
+            }
+
+            if (selectedItems.Count < 1)
+            {
+                MessageBox.Show("当前没有选中的项目！");
+                return;
+            }
+
+            foreach (var item in selectedItems)
+            {
+                if (DeletePrjFolder(item.TitleText))
+                    prjItemContainer.SubItems.Remove(item);
+            }
+
+            tilePanel.RecalcLayout();
+        }
+
+        private bool DeletePrjFolder(string prjName)
+        {
+            try
+            {
+                var result = MessageBox.Show("您确定要删除项目[" + prjName + "]吗？删除后将无法恢复！", "确认删除", MessageBoxButtons.OKCancel);
+                if (result != DialogResult.OK)
+                    return true;
+
+                DirectoryInfo di = new DirectoryInfo(ProjectInfo.ProjectPath + "\\" + prjName);
+                di.Delete(true);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("删除项目文件夹失败！\n" + ex.Message);
+                return false;
+            }
         }
     }
 }

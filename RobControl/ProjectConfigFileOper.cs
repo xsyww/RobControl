@@ -116,6 +116,8 @@ namespace RobControl
                         z1 = double.Parse(ptElem.GetAttribute("z1")),
                         Type = int.Parse(ptElem.GetAttribute("Type"))
                     };
+
+                    prjInfo.ModelPoints.Add(point);
                 }
 
                 return prjInfo;
