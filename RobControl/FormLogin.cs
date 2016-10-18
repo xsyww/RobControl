@@ -14,5 +14,10 @@ namespace RobControl
         {
             InitializeComponent();
         }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 }

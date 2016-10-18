@@ -323,6 +323,7 @@
             // 
             // gridPoints
             // 
+            this.gridPoints.AllowEditing = false;
             this.gridPoints.BackColor = System.Drawing.Color.White;
             this.gridPoints.ColumnInfo = resources.GetString("gridPoints.ColumnInfo");
             this.gridPoints.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -331,7 +332,7 @@
             this.gridPoints.Name = "gridPoints";
             this.gridPoints.Rows.DefaultSize = 20;
             this.gridPoints.Rows.MinSize = 25;
-            this.gridPoints.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.ListBox;
+            this.gridPoints.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this.gridPoints.Size = new System.Drawing.Size(271, 335);
             this.gridPoints.StyleInfo = resources.GetString("gridPoints.StyleInfo");
             this.gridPoints.TabIndex = 4;

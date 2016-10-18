@@ -99,6 +99,7 @@
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 4;
             this.buttonX1.Text = "登        陆";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // FormLogin
             // 

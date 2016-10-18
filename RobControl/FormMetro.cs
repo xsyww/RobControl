@@ -474,6 +474,11 @@ namespace RobControl
 
         private void btnProjectSetting_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void SaveCurrentDrawing()
+        {
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.Filter = "vdcl|*.vdcl";
             if (dlg.ShowDialog(this) != DialogResult.OK)
