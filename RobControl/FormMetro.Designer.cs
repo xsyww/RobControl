@@ -390,6 +390,7 @@
             this.btnSetupOriginPoint.Symbol = "";
             this.btnSetupOriginPoint.SymbolSize = 30F;
             this.btnSetupOriginPoint.Text = "buttonItem4";
+            this.btnSetupOriginPoint.Click += new System.EventHandler(this.btnSetupOriginPoint_Click);
             // 
             // panel2
             // 

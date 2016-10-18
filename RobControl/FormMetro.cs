@@ -24,6 +24,7 @@ namespace RobControl
         private CtrlRobSetting _ctrlRobSetting = null;
         private CtrlPrjInfo _ctrlPrjInfo = null;
         private ProjectInfo _currentProject = null;
+        private FormMakeStation _formStation = null;
 
         public FormMetro()
         {
@@ -399,6 +400,9 @@ namespace RobControl
                     vdf.XProperties.FindName("#PointName").PropValue.ToString() == pointName
                 select vdf).FirstOrDefault();
 
+            if (point == null)
+                return;
+
             point.HighLight = true;
             vDraw.ActiveDocument.Redraw(true);
         }
@@ -407,7 +411,39 @@ namespace RobControl
 
         private void addPoint_Click(object sender, EventArgs e)
         {
+            if (_currentProject == null)
+                return;
+          
+            var dlg = new FormAddPoint();
+            dlg.ValidateNameMethod = IsPointNameValid; 
+            if (dlg.ShowDialog(this) != DialogResult.OK)
+                return;
+            
+            _currentProject.ModelPoints.Add(dlg.MPoint);
+            CreatePoint(dlg.MPoint);
+            ShowPointsInGrid();
 
+            ShowPointInGrid(dlg.MPoint.Name);
+        }
+
+        private bool IsPointNameValid(string name)
+        {
+            if (_currentProject == null)
+                return false;
+
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("点名称不可为空");
+                return false;
+            }
+
+            if (_currentProject.ModelPoints.Any(pt => pt.Name == name))
+            {
+                MessageBox.Show("已经有同名的点，请重新命名");
+                return false;
+            }
+
+            return true;
         }
 
         #region 创建球形块
@@ -471,6 +507,41 @@ namespace RobControl
                 return;
             else
                 gridPoints.Select(index + 1, 1);
+        }
+
+        private ModelPoint SelectPoint()
+        {
+            vdFigure vdf;
+            gPoint gp;
+            string pointName = string.Empty;
+            while (true)
+            {
+                var res = vDraw.ActiveDocument.ActionUtility.getUserEntity(out vdf, out gp);
+                if (res == StatusCode.Cancel)
+                    return null;
+
+                if (res == StatusCode.Success)
+                {
+                    var xp = vdf.XProperties.FindName("#PointName");
+                    if (xp == null)
+                        continue;
+
+                    pointName = xp.PropValue.ToString();
+                    break;
+                }
+            }
+
+            return _currentProject.ModelPoints.FirstOrDefault(pt => pt.Name == pointName);
+        }
+
+        private void btnSetupOriginPoint_Click(object sender, EventArgs e)
+        {
+            if (_formStation == null || _formStation.IsDisposed)
+                _formStation = new FormMakeStation();
+
+            _formStation.ControlPointSelectHandler = SelectPoint;
+            _formStation.BackVisionPointSelectHandler = SelectPoint;
+            _formStation.Show(this);
         }
     }
 }

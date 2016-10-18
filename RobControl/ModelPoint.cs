@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RobControl
 {
-    class ModelPoint
+    public class ModelPoint
     {
         public ModelPoint(string name)
         {
