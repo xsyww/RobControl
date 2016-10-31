@@ -98,19 +98,19 @@
   <ItemGroup>
     <Compile Include="CommonDefine.cs" />
     <Compile Include="CtrlDocument.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CtrlDocument.Designer.cs">
       <DependentUpon>CtrlDocument.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlPrjInfo.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CtrlPrjInfo.Designer.cs">
       <DependentUpon>CtrlPrjInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlProjects.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CtrlProjects.Designer.cs">
       <DependentUpon>CtrlProjects.cs</DependentUpon>
@@ -126,6 +126,12 @@
     </Compile>
     <Compile Include="FormAddPoint.Designer.cs">
       <DependentUpon>FormAddPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreateData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateData.Designer.cs">
+      <DependentUpon>FormCreateData.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -157,6 +163,12 @@
     <Compile Include="FormRobotSetting.Designer.cs">
       <DependentUpon>FormRobotSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSystemSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystemSetting.Designer.cs">
+      <DependentUpon>FormSystemSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainItemPanelCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -183,6 +195,9 @@
     <EmbeddedResource Include="FormAddPoint.resx">
       <DependentUpon>FormAddPoint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateData.resx">
+      <DependentUpon>FormCreateData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRobotSetting.resx">
       <DependentUpon>FormRobotSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystemSetting.resx">
+      <DependentUpon>FormSystemSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainItemPanelCtrl.resx">
       <DependentUpon>MainItemPanelCtrl.cs</DependentUpon>

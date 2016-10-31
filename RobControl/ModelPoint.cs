@@ -9,6 +9,14 @@ namespace RobControl
         public ModelPoint(string name)
         {
             this.Name = name;
+
+            x = 0;
+            y = 0;
+            z = 0;
+            x1 = 0;
+            y1 = 0;
+            z1 = 0;
+            Type = 0;
         }
 
         public string Name { get; set; }

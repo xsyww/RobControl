@@ -39,7 +39,6 @@
             this.metroTileItem5 = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.metroTileItem6 = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.metroTileItem7 = new DevComponents.DotNetBar.Metro.MetroTileItem();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.SuspendLayout();
             // 
@@ -50,9 +49,10 @@
             this.btnDeletePrj.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDeletePrj.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDeletePrj.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnDeletePrj.Location = new System.Drawing.Point(913, 200);
+            this.btnDeletePrj.Location = new System.Drawing.Point(1296, 188);
+            this.btnDeletePrj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeletePrj.Name = "btnDeletePrj";
-            this.btnDeletePrj.Size = new System.Drawing.Size(77, 54);
+            this.btnDeletePrj.Size = new System.Drawing.Size(116, 81);
             this.btnDeletePrj.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnDeletePrj.Symbol = "";
             this.btnDeletePrj.SymbolSize = 20F;
@@ -67,9 +67,10 @@
             this.btnAddPrj.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnAddPrj.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAddPrj.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnAddPrj.Location = new System.Drawing.Point(913, 140);
+            this.btnAddPrj.Location = new System.Drawing.Point(1296, 99);
+            this.btnAddPrj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddPrj.Name = "btnAddPrj";
-            this.btnAddPrj.Size = new System.Drawing.Size(77, 54);
+            this.btnAddPrj.Size = new System.Drawing.Size(116, 81);
             this.btnAddPrj.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnAddPrj.Symbol = "";
             this.btnAddPrj.SymbolSize = 20F;
@@ -91,9 +92,10 @@
             this.tilePanel.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.prjItemContainer});
             this.tilePanel.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-            this.tilePanel.Location = new System.Drawing.Point(22, 55);
+            this.tilePanel.Location = new System.Drawing.Point(33, 82);
+            this.tilePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tilePanel.Name = "tilePanel";
-            this.tilePanel.Size = new System.Drawing.Size(874, 535);
+            this.tilePanel.Size = new System.Drawing.Size(1255, 631);
             this.tilePanel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.tilePanel.TabIndex = 3;
             this.tilePanel.Text = "metroTilePanel1";
@@ -210,23 +212,6 @@
             // 
             this.metroTileItem7.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonX1.Location = new System.Drawing.Point(913, 48);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(77, 54);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.Symbol = "";
-            this.buttonX1.SymbolSize = 20F;
-            this.buttonX1.TabIndex = 6;
-            this.buttonX1.Text = "关闭";
-            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
-            // 
             // labelX1
             // 
             // 
@@ -234,23 +219,29 @@
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX1.Location = new System.Drawing.Point(10, 10);
+            this.labelX1.Location = new System.Drawing.Point(15, 15);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(129, 39);
+            this.labelX1.Size = new System.Drawing.Size(194, 58);
             this.labelX1.TabIndex = 7;
             this.labelX1.Text = "选择项目：";
             // 
             // CtrlProjects
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1425, 852);
             this.Controls.Add(this.labelX1);
-            this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.tilePanel);
             this.Controls.Add(this.btnDeletePrj);
             this.Controls.Add(this.btnAddPrj);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CtrlProjects";
-            this.Size = new System.Drawing.Size(993, 604);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CtrlProjects_Load);
             this.ResumeLayout(false);
 
@@ -269,7 +260,6 @@
         private DevComponents.DotNetBar.Metro.MetroTileItem metroTileItem5;
         private DevComponents.DotNetBar.Metro.MetroTileItem metroTileItem6;
         private DevComponents.DotNetBar.Metro.MetroTileItem metroTileItem7;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.LabelX labelX1;
     }
 }

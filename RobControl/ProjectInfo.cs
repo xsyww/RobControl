@@ -6,7 +6,7 @@ using VectorDraw.Professional.vdFigures;
 
 namespace RobControl
 {
-    class ProjectInfo
+    public class ProjectInfo
     {
         public ProjectInfo(string name)
         {

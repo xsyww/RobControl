@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace RobControl
 {
-    public partial class CtrlPrjInfo : UserControl
+    public partial class CtrlPrjInfo : Form
     {
         public CloseClickEvent CloseClickHandler;
 
@@ -22,8 +22,8 @@ namespace RobControl
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (CloseClickHandler != null)
-                CloseClickHandler(this);
+            DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void btnSavePrj_Click(object sender, EventArgs e)
@@ -71,8 +71,8 @@ namespace RobControl
             if (!ProjectConfigFileOper.SavePrjInfo(info))
                 return;
 
-            if (CloseClickHandler != null)
-                CloseClickHandler(this);
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void prjSelectModel_Click(object sender, EventArgs e)

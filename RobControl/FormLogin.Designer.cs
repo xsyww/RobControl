@@ -105,6 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(355, 219);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.textBoxX2);
@@ -113,6 +114,7 @@
             this.Controls.Add(this.labelX1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
             this.ResumeLayout(false);
 

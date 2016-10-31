@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace RobControl
 {
-    public partial class CtrlDocument : UserControl
+    public partial class CtrlDocument : Form
     {
         public CloseClickEvent CloseClickHandler;
 
@@ -19,8 +19,7 @@ namespace RobControl
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
-            if (CloseClickHandler != null)
-                CloseClickHandler(this);
+            this.Close();
         }
     }
 }

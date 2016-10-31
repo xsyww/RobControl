@@ -14,11 +14,11 @@ namespace RobControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            /*
             FormLogin dlg = new FormLogin();
             if (dlg.ShowDialog() != DialogResult.OK)
                 return;
-
+            */
             Application.Run(new FormMetro());
         }
     }

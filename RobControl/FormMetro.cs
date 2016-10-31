@@ -19,10 +19,6 @@ namespace RobControl
 {
     public partial class FormMetro : MetroAppForm
     {
-        private CtrlProjects _ctrlProjects = null;
-        private CtrlDocument _ctrlReport = null;
-        private CtrlRobSetting _ctrlRobSetting = null;
-        private CtrlPrjInfo _ctrlPrjInfo = null;
         private ProjectInfo _currentProject = null;
         private FormMakeStation _formStation = null;
 
@@ -72,54 +68,35 @@ namespace RobControl
 
         private void btnProject_Click(object sender, EventArgs e)
         {
+            var dlg = new CtrlProjects();
+            if (dlg.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            OpenProject(dlg.SelectedProjectPath);
+
+            /*
             _ctrlProjects = new CtrlProjects();
             _ctrlProjects.CloseClickHandler = ClosePanel;
             _ctrlProjects.CreatePrjHandler = ShowPrjInfoPanel;
             _ctrlProjects.OpenPrjHandler = OpenProject;
             _ctrlProjects.Size = GetCurrentClientSize();
             this.ShowModalPanel(_ctrlProjects, DevComponents.DotNetBar.Controls.eSlideSide.Left);
-        }
-
-        private void ShowPrjInfoPanel()
-        {
-            _ctrlPrjInfo = new CtrlPrjInfo();
-            _ctrlPrjInfo.CloseClickHandler = ClosePanel;
-            _ctrlPrjInfo.Size = GetCurrentClientSize();
-            this.ShowModalPanel(_ctrlPrjInfo, DevComponents.DotNetBar.Controls.eSlideSide.Left);
+            */
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            _ctrlReport = new CtrlDocument();
-            _ctrlReport.CloseClickHandler = ClosePanel;
-            _ctrlReport.Size = GetCurrentClientSize();
-            this.ShowModalPanel(_ctrlReport, DevComponents.DotNetBar.Controls.eSlideSide.Left);
-
+            (new CtrlDocument()).ShowDialog(this);
         }
 
         private void btnInfoSetting_Click(object sender, EventArgs e)
         {
-            _ctrlRobSetting = new CtrlRobSetting();
-            _ctrlRobSetting.CloseClickHandler = ClosePanel;
-            this.ShowModalPanel(_ctrlRobSetting, DevComponents.DotNetBar.Controls.eSlideSide.Left);
-        }
-
-        private void ClosePanel(UserControl ctrl)
-        {
-            if (ctrl == null)
-                return;
-
-            this.CloseModalPanel(ctrl, DevComponents.DotNetBar.Controls.eSlideSide.Left);
-            ctrl.Dispose();
-            ctrl = null;
+            (new FormRobotSetting()).ShowDialog(this);
         }
 
         private void OpenProject(string prjName)
         {
-            ClosePanel(_ctrlProjects);
-
             CloseCurrentDrawing();
-            InitRenderProperty();
 
             _currentProject = ProjectConfigFileOper.LoadPrjInfo(prjName);
             if (_currentProject == null)
@@ -128,8 +105,9 @@ namespace RobControl
             ShowPointsInGrid();
 
             vDraw.ActiveDocument.Open(_currentProject.ModelFilePathName);
+            InitRenderProperty();
 
-            CreatePoints(_currentProject.ModelPoints);
+            CreatePoints(_currentProject.ModelPoints, 500);
         }
 
         private void ShowPointsInGrid()
@@ -142,15 +120,15 @@ namespace RobControl
             gridPoints.SetDataBinding(_currentProject.ModelPoints, "", true);
         }
 
-        private void CreatePoints(List<ModelPoint> points)
+        private void CreatePoints(List<ModelPoint> points, double radius)
         {
-            points.ForEach(CreatePoint);
+            points.ForEach(pt => CreatePoint(pt, radius));
             vDraw.ActiveDocument.Redraw(true);
         }
 
-        private void CreatePoint(ModelPoint pt)
+        private void CreatePoint(ModelPoint pt, double radius)
         {
-            vdInsert vdi = new vdInsert(vDraw.ActiveDocument, GetSphereBlk(), new gPoint(pt.x, pt.y, pt.z), 0, 5, 5, 5);
+            vdInsert vdi = new vdInsert(vDraw.ActiveDocument, GetSphereBlk(), new gPoint(pt.x, pt.y, pt.z), 0, radius, radius, radius);
             vDraw.ActiveDocument.ActiveLayOut.Entities.Add(vdi);
 
             vdXProperty vdx = new vdXProperty();
@@ -163,7 +141,7 @@ namespace RobControl
 
         private void labelTitle_Click(object sender, EventArgs e)
         {
-            panel1.Visible = !panel1.Visible;
+            barMain.Visible = !barMain.Visible;
         }
 
         private Size GetCurrentClientSize()
@@ -186,28 +164,31 @@ namespace RobControl
         {
             if (gripSelection != null)
             {
-                /*
+
                 if (vDraw.ActiveDocument.PerspectiveMod == vdRender.VdConstPerspectiveMod.PerspectOFF)
                 {
                     var hilightted = (from vdFigure vdf in vDraw.ActiveDocument.ActiveLayOut.Entities
-                        where vdf.HighLight
-                        select vdf).ToList();
+                                      where vdf.HighLight
+                                      select vdf).ToList();
 
                     hilightted.ForEach(vdf => vdf.HighLight = false);
                     foreach (vdFigure vdf in gripSelection)
                         vdf.HighLight = true;
 
-                    vDraw.ActiveDocument.Redraw(true);
+                    vDraw.ActiveDocument.Redraw(false);
                 }
-                */
 
-                var pt = gripSelection.Last;
-                if (pt == null)
-                    return;
 
-                var nameProp = pt.XProperties.FindName("#PointName");
-                if (nameProp != null)
-                    ShowPointInGrid(nameProp.PropValue.ToString());
+                if (gripSelection.Count > 0)
+                {
+                    var pt = gripSelection.Last;
+                    if (pt == null)
+                        return;
+
+                    var nameProp = pt.XProperties.FindName("#PointName");
+                    if (nameProp != null)
+                        ShowPointInGrid(nameProp.PropValue.ToString());
+                }
             }
         }
 
@@ -245,12 +226,15 @@ namespace RobControl
             switch (m.Msg)
             {
                 case (int)VDrawMsg.MSG_CANCEL:
+                    vDraw.Focus();
                     vDraw.ActiveDocument.CommandAction.Cancel();
                     break;
                 case (int)VDrawMsg.MSG_PAN:
+                    vDraw.Focus();
                     vDraw.ActiveDocument.CommandAction.Pan();
                     break;
                 case (int)VDrawMsg.MSG_ROTATE:
+                    vDraw.Focus();
                     RotateAroundCenter();
                     break;
                 default:
@@ -293,7 +277,7 @@ namespace RobControl
 
         private void btnPan_Click(object sender, EventArgs e)
         {
-            vDraw.ActiveDocument.CommandAction.Pan();
+            PostMessage((int)Handle, (int)VDrawMsg.MSG_PAN, 0, 0);
         }
 
         private void btnRotate_Click(object sender, EventArgs e)
@@ -339,7 +323,6 @@ namespace RobControl
         /// <param name="isOn"></param>
         private void SetPerspectiveMode(bool isOn)
         {
-
             vDraw.ActiveDocument.PerspectiveMod = isOn
                 ? vdRender.VdConstPerspectiveMod.PerspectON
                 : vdRender.VdConstPerspectiveMod.PerspectOFF;
@@ -403,7 +386,10 @@ namespace RobControl
             if (point == null)
                 return;
 
-            point.HighLight = true;
+            var gs = vDraw.ActiveDocument.GetGripSelection();
+            gs.RemoveAll();
+            gs.AddItem(point, true, VectorDraw.Professional.vdCollections.vdSelection.AddItemCheck.RemoveInVisibleEntities);
+
             vDraw.ActiveDocument.Redraw(true);
         }
 
@@ -420,7 +406,7 @@ namespace RobControl
                 return;
             
             _currentProject.ModelPoints.Add(dlg.MPoint);
-            CreatePoint(dlg.MPoint);
+            CreatePoint(dlg.MPoint, 500);
             ShowPointsInGrid();
 
             ShowPointInGrid(dlg.MPoint.Name);
@@ -458,6 +444,7 @@ namespace RobControl
                 vdFigure vdf = vDraw.ActiveDocument.ActiveLayOut.Entities.Last;
                 if (vdf is vdPolyface)
                 {
+                    (vdf as vdPolyface).SmoothAngle = 30;
                     blk = new vdBlock(vDraw.ActiveDocument, "_PointMark");
                     blk.Entities.Add(vdf.Clone(vDraw.ActiveDocument));
                     vDraw.ActiveDocument.Blocks.Add(blk);
@@ -474,8 +461,7 @@ namespace RobControl
 
         private void btnProjectSetting_Click(object sender, EventArgs e)
         {
-
-        }
+         }
 
         private void SaveCurrentDrawing()
         {
@@ -497,7 +483,6 @@ namespace RobControl
                 gridPoints.Select(1, 1);
             else
                 gridPoints.Select(index - 1, 1);
-
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -547,6 +532,82 @@ namespace RobControl
             _formStation.ControlPointSelectHandler = SelectPoint;
             _formStation.BackVisionPointSelectHandler = SelectPoint;
             _formStation.Show(this);
+        }
+
+        private void btnCreateData_Click(object sender, EventArgs e)
+        {
+            if (_currentProject == null)
+                return;
+
+            FormCreateData dlg = new FormCreateData();
+            dlg.PrjInfo = _currentProject;
+            if (dlg.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            ShowPointsInGrid();
+            RemoveAllPointInModel();
+            CreatePoints(_currentProject.ModelPoints, 500);
+        }
+
+        private void RemoveAllPointInModel()
+        {
+            var points = (from vdFigure vdf in vDraw.ActiveDocument.ActiveLayOut.Entities
+                where vdf is vdInsert &&
+                      (vdf as vdInsert).Block.Name == "_PointMark"
+                select vdf).ToList();
+
+            points.ForEach(pt => pt.Deleted = true);
+        }
+
+        private void buttonItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShowPoint_Click(object sender, EventArgs e)
+        {
+            if (gridPoints.RowSel < 1)
+                return;
+
+            var selectedPoint = gridPoints.Rows[gridPoints.RowSel].DataSource as ModelPoint;
+            if (selectedPoint == null)
+                return;
+
+            var gp = new gPoint(selectedPoint.x, selectedPoint.y, selectedPoint.z);
+            vDraw.ActiveDocument.ActiveRender.ViewCenter = vDraw.ActiveDocument.ActiveRender.CurrentMatrix.Transform(gp);
+            vDraw.ActiveDocument.Redraw(true);
+        }
+
+        private void btnLayout_Click(object sender, EventArgs e)
+        {
+            buttonMeasure.Visible = false;
+            btnStake.Visible = true;
+            barOper.RecalcLayout();
+            labelTitle.Text = "BIM放样控制软件" + "- 放样";
+        }
+
+        private void btnMeasure_Click(object sender, EventArgs e)
+        {
+            btnStake.Visible = false;
+            btnMeasure.Visible = true;
+            barOper.RecalcLayout();
+            labelTitle.Text = "BIM放样控制软件" + "- 测量";
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            PostMessage((int)Handle, (int)VDrawMsg.MSG_ROTATE, 0, 0);
+        }
+
+        private void vDraw_MouseEnter(object sender, EventArgs e)
+        {
+            vDraw.Focus();
+        }
+
+        private void btnProjectSetting_Click_1(object sender, EventArgs e)
+        {
+            var dlg = new FormSystemSetting();
+            dlg.ShowDialog(this);
         }
     }
 }

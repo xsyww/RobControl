@@ -10,7 +10,7 @@ using DevComponents.DotNetBar.Metro;
 
 namespace RobControl
 {
-    public partial class CtrlProjects : UserControl
+    public partial class CtrlProjects : Form
     {
         public CloseClickEvent CloseClickHandler;
         public CreatePrjEvent CreatePrjHandler;
@@ -64,23 +64,19 @@ namespace RobControl
             if (item == null)
                 return;
 
-            if (OpenPrjHandler != null)
-                OpenPrjHandler(item.TitleText);
-        }
 
-        private void buttonX1_Click(object sender, EventArgs e)
-        {
-            if (CloseClickHandler != null)
-                CloseClickHandler(this);
+            SelectedProjectPath = item.TitleText;
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnAddPrj_Click(object sender, EventArgs e)
         {
-            if (CreatePrjHandler != null)
-                CreatePrjHandler();
+            CtrlPrjInfo dlg = new CtrlPrjInfo();
+            if (dlg.ShowDialog(this) != DialogResult.OK)
+                return;
 
-            if (CloseClickHandler != null)
-                CloseClickHandler(this);
+            LoadPrjIntoMetroPanel();
         }
 
         private void btnDeletePrj_Click(object sender, EventArgs e)
